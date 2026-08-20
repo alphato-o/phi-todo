@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phi Todo</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <h1>Phi Todo</h1>
+      <p class="tagline">Your AI personal assistant for getting things done</p>
+    </div>
+    <div class="toolbar">
+      <span id="stats" class="stats"></span>
+      <button id="btn-prioritize" class="btn ai">&#10024; Prioritize my week</button>
+      <button id="btn-cleanup" class="btn ai danger">&#129529; Clean up my list</button>
+    </div>
+  </header>
+
+  <main>
+    <form id="add-form" autocomplete="off">
+      <input id="add-title" placeholder="Add a task..." required>
+      <select id="add-category">
+        <option>personal</option><option>work</option><option>health</option>
+        <option>financial</option><option>household</option>
+      </select>
+      <select id="add-priority">
+        <option>high</option><option selected>medium</option><option>low</option>
+      </select>
+      <input id="add-due" type="date">
+      <button class="btn" type="submit">Add</button>
+    </form>
+
+    <section class="calendar-section">
+      <div class="cal-header">
+        <h2>Schedule</h2>
+        <div class="cal-nav">
+          <button id="cal-prev" class="btn small">&larr;</button>
+          <span id="cal-month"></span>
+          <button id="cal-next" class="btn small">&rarr;</button>
+        </div>
+      </div>
+      <div id="calendar" class="calendar"></div>
+    </section>
+
+    <section>
+      <h2>Active</h2>
+      <div id="active-list" class="list"></div>
+    </section>
+    <section>
+      <h2>Completed</h2>
+      <div id="completed-list" class="list"></div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <h3 id="modal-title"></h3>
+      <div id="modal-body"></div>
+      <button class="btn" onclick="document.getElementById('modal').classList.add('hidden')">Close</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
